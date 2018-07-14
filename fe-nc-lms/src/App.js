@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 
-
+import LoginPage from './pages/LoginPage';
+import Navbar from './components/navbar';
+import LearningFeed from './components/LearningFeed';
+import HomePage from './pages/HomePage';
 
 class App extends Component {
   render() {
@@ -11,15 +14,10 @@ class App extends Component {
       <React.Fragment>
         <div>
           <div>
-            <Navbar />
             <Switch>
-              <Route exact path="/" component={HomePage} />
-              <Route exact path="/articles/:articleId" component={ArticleView} />
-              <Route path="/users/:userId" component={UserView} />
-              <Route path="/articles/:articleId/comments" component={ArticleView} />
-              <Route path="/topics/:topicId/articles" component={TopicView} />
-              <Route path="/addComment/:articleId" component={AddCommentView} />
-              <Route path="/comments/:commentId" component={CommentView} />
+              <Route exact path="/" component={LoginPage} />
+              <Route path="/home" component={HomePage} />
+              <Route path="/learning/:userId" component={LearningFeed} />
             </Switch>
           </div>
         </div>
