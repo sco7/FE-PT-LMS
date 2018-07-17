@@ -5,6 +5,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
 import Navbar from './components/navbar';
 import LearningFeed from './components/LearningFeed';
+import LearningPlan from './components/LearningPlan';
 import HomePage from './pages/HomePage';
 
 class App extends Component {

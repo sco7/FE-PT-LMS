@@ -4,6 +4,12 @@ import { Button } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
 class HomePage extends Component {
+  componentDidMount() {
+    console.log('loading');
+    const { userId } = this.props.match.params;
+    console.log(userId);
+  }
+
   render() {
     return (
           <div class="row">

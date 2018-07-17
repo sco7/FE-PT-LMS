@@ -22,13 +22,9 @@ const Navbar = () => {
 
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
           <ul class="navbar-nav mr-auto">
-            <li class="nav-item active">
-              <Link to="/">
-                <a class="nav-link">
-                  Home <span class="sr-only">(current)</span>
-                </a>
-              </Link>
-            </li>
+            
+
+            
             <li class="nav-item dropdown">
               <a
                 class="nav-link dropdown-toggle"
@@ -54,18 +50,14 @@ const Navbar = () => {
                 </a>
               </div>
             </li>
+            <li class="nav-item active">
+              <Link to="/">
+                <a class="nav-link">
+                  Logout <span class="sr-only">(current)</span>
+                </a>
+              </Link>
+            </li>
           </ul>
-          <form class="form-inline my-2 my-lg-0">
-            <input
-              class="form-control mr-sm-2"
-              type="search"
-              placeholder="Search"
-              aria-label="Search"
-            />
-            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">
-              Search
-            </button>
-          </form>
         </div>
       </nav>
     </div>

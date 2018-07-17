@@ -26,14 +26,15 @@ class LoginPage extends Component {
     event.preventDefault();
     let username = this.state.username;
     let password = this.state.password;
-    //let userId = this.props.match.params.userId;
+    let userId = this.props.match.params.userId;
     console.log(username);
     console.log(password);
     getLogin(username, password).then(res => {
       console.log(res, 'mounted');
       this.setState({
-        user: res.Users.username
+        user: res.Users.id
       });
+      this.props.history.push('/learning/'+this.state.user);
     });
   };
   render() {
@@ -44,8 +45,8 @@ class LoginPage extends Component {
         <div className="col-10 col-sm-7 col-md-5 col-lg-4">
           <Form>
             <FormGroup>
-              <h3>Learning Management System</h3>
-              <h4>Login</h4>
+              <h3 id="loginTitle">Learning Management System</h3>
+              <h4 id='login'>Login</h4>
               <Label for="username">Username</Label>
               <Input
                 type="text"
@@ -69,33 +70,12 @@ class LoginPage extends Component {
               className="button2"
               type="submit"
               onClick={this.submitLogin}
-              value={this.state.username}
-            >Log In</Button>
+              value={this.state.id}>
+              Log In
+            </Button>
           </Form>
         </div>
       </div>
-    );
-  }
-}
-
-
-
-class LoginPages extends Component {
-  render() {
-    return (
-          <div class="row">
-          <div class="col-sm">
-           
-
-          </div>
-          <div class="col-6">
-           
-            </div>
-            <div class="col-sm">
-              
-            </div>
-      </div>
-
     );
   }
 }
