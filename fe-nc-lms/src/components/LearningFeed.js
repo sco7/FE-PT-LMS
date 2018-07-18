@@ -66,6 +66,7 @@ class LearningFeed extends React.Component {
     const { courses, history, curricula, user } = this.state;
     console.log(this.state.courses);
     return (
+      <div class="container">
       <div class="row">
         <div class="col-1" />
         <div class="col-5">
@@ -82,17 +83,19 @@ class LearningFeed extends React.Component {
                 ) : (
                   courses.map(course => {
                     return (
-                      <div id="CourseFeedRollUp" key={course._id}>
-                        <Link to={`/articles/${course._id}`}>
+                      <div id="CourseFeedRollUp" key={course.course_id}>
+                        {/* <Link to={`/course/${course.course_id}`}> */}
                           <h6>{course.title}</h6>
-                        </Link>
+                          <p>{course.description}</p>
+                        {/* </Link> */}
                         <p>
                           Start Date:{' '}
                           <Moment format="DD/MM/YY">{course.start_date}</Moment> &emsp; Start time:{' '}
                           {course.start_time}
                         </p>
                         <p>
-                          Location: {course.location}
+                          Location: {course.location} &emsp; Length:{' '}
+                          {course.duration_hours} hours
                         </p>
                       </div>
                     );
@@ -152,6 +155,7 @@ class LearningFeed extends React.Component {
               )}
             </div>
         </div>
+      </div>
       </div>
     );
   }
