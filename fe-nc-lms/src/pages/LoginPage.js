@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
-import { Link } from 'react-router-dom';
 import { getLogin } from '../components/api';
 
 class LoginPage extends Component {
@@ -26,15 +25,18 @@ class LoginPage extends Component {
     event.preventDefault();
     let username = this.state.username;
     let password = this.state.password;
-    let userId = this.props.match.params.userId;
+
+    //let userId = this.props.match.params.userId;
     console.log(username);
     console.log(password);
     getLogin(username, password).then(res => {
       console.log(res, 'mounted');
+      if (res.error !== "Cannot find Users") {
       this.setState({
         user: res.Users.id
       });
       this.props.history.push('/learning/'+this.state.user);
+    }
     });
   };
   render() {
@@ -79,5 +81,6 @@ class LoginPage extends Component {
     );
   }
 }
+
 
 export default LoginPage;

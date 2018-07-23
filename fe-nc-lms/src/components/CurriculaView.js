@@ -1,15 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from '../components/navbar';
-import Moment from 'react-moment';
 
 import {
-  getCoursesByUserCompleted,
+  getCoursesByUserId,
 } from './api';
 
-class CompleteHistoryView extends React.Component {
+class CurriculaView extends React.Component {
   state = {
-    history: [],
+    courses: [],
     loading: true
   };
   
@@ -17,11 +16,11 @@ class CompleteHistoryView extends React.Component {
     console.log('loading');
     const { userId } = this.props.match.params;
     console.log(userId);
-    getCoursesByUserCompleted(this.props.match.params.userId).then(
-      historyData => {
-        console.log(historyData, 'mounted', userId);
+    getCoursesByUserId(this.props.match.params.userId).then(
+      coursesData => {
+        console.log(coursesData, 'mounted', userId);
         this.setState({
-          history: historyData.Courses,
+          courses: coursesData.Courses,
           loading: false
         });
       }
@@ -30,8 +29,8 @@ class CompleteHistoryView extends React.Component {
 
   render() {
     console.log('render');
-    const { history } = this.state;
-    console.log(this.state.history);
+    const { courses } = this.state;
+    console.log(this.state.courses);
     return (
       <div class="container">
       <div class="row">
@@ -43,25 +42,25 @@ class CompleteHistoryView extends React.Component {
         <div class="col-10">
           <div>
             {this.state.loading ? (
-              <p>Learning History loading........</p>
+              <p>Courses loading........</p>
             ) : (
-              <form id="CompleteHistoryFeed">
+              <form id="CompleteCurriculaFeed">
                 <Navbar />
-                <h4 id="CompleteHistoryView">Learning History</h4>
-                <h5>Courses Completed</h5>
-                {this.state.history === undefined ? (
-                  <p>No courses complete</p>
+                <h4 id="CompleteCurriculaView">Curricula contents</h4>
+                <h5>My Courses</h5>
+                {this.state.courses === undefined ? (
+                  <p>No curricula assigned</p>
                 ) : (
                         <table class="table table-hover">
                         <thead>
                           <tr>
-                            <th>Completion Date</th>
+                            <th>Id</th>
                             <th>Title</th>
-                            <th>Status</th>
+                            <th>Description</th>
                           </tr>
                         </thead>
                         <tbody>
-                  {history.map(this.renderHistory)}
+                  {courses.map(this.renderCourses)}
                         </tbody>
                         </table>
                 )}
@@ -74,14 +73,14 @@ class CompleteHistoryView extends React.Component {
     );
   }
   
-  renderHistory(course, index) {
+  renderCourses(courses, index) {
     return (
       <tr key={index}>
-      <td>{<Moment format="DD/MM/YY">{course.start_date}</Moment>}</td>
-      <td>{course.title}</td>
-      <td>{course.completed_status}</td>
+      <td>{courses.id}</td>
+      <td>{courses.title}</td>
+      <td>{courses.description}</td>
     </tr>
   )
 }
 }
-export default CompleteHistoryView;
+export default CurriculaView;

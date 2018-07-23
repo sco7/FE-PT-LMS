@@ -112,13 +112,13 @@ class LearningFeed extends React.Component {
                 <p>History loading........</p>
               ) : ( 
                 <form id="HistoryFeed">
-                  <h4 id="HistoryFeedTitle"></h4>
+                  <h4 id="HistoryFeedTitle"> </h4>
                   <h5>Learning History</h5>
                   <p><b>Most Recently Added</b></p>
                   {this.state.history === undefined ? (
                     <p>No Learning completed</p>
                   ) : (
-                    history.slice(0, 3).map(course => {
+                    history.slice(0, 2).map(course => {
                       return (
                         <div id="HistoryFeedRollUp" key={course._id}>
                           <p>
@@ -128,6 +128,9 @@ class LearningFeed extends React.Component {
                       );
                     })
                   )}
+                  <Link to={`/history/${user.id}`}>
+                  <button type="button" class="btn btn-primary btn-sm">View All</button>
+                  </Link>
                 </form>
               )}
             </div>
@@ -145,7 +148,8 @@ class LearningFeed extends React.Component {
                       return (
                         <div id="CurriculaFeedRollUp" key={curricula._id}>
                           <p>
-                            {curricula.title}
+                          <Link to={`/curricula/${user.id}`}>{curricula.title}
+                          </Link>
                           </p>
                         </div>
                       );
@@ -153,6 +157,28 @@ class LearningFeed extends React.Component {
                   )}
                 </form>
               )}
+            </div>
+
+            <div>
+            {user.account_type !== 'Admin' ? (
+                    <p></p>
+                  ) : (
+                <form id="AdminTools">
+                  <h5 id="AdminToolsTitle">Admin Tools</h5>
+                  <Link to={`/history/${user.id}`}>
+                  <button type="button" class="btn btn-primary btn-sm">Users</button>
+                  </Link>
+                  <Link to={`/history/${user.id}`}>
+                  <button type="button" class="btn btn-primary btn-sm">Curricula</button>
+                  </Link>
+                  <Link to={`/history/${user.id}`}>
+                  <button type="button" class="btn btn-primary btn-sm">Courses</button>
+                  </Link>
+                  <Link to={`/admin/sessions/${user.id}`}>
+                  <button type="button" class="btn btn-primary btn-sm">Sessions</button>
+                  </Link>
+                </form>
+                )}
             </div>
         </div>
       </div>

@@ -2,14 +2,12 @@ import React, { Component } from 'react';
 
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import LoginPage from './pages/LoginPage';
-import Navbar from './components/navbar';
 import LearningFeed from './components/LearningFeed';
-import LearningPlan from './components/LearningPlan';
 import HomePage from './pages/HomePage';
 import CourseView from './components/CourseView'
 import CompleteHistoryView from './components/CompleteHistoryView'
-
-
+import AllSessionView from './components/AdminSessions'
+import CurriculaView from './components/CurriculaView'
 
 class App extends Component {
   render() {
@@ -24,6 +22,8 @@ class App extends Component {
               <Route path="/learning/:userId" component={LearningFeed} />
               <Route path="/course/:courseId" component={CourseView} />
               <Route path="/history/:userId" component={CompleteHistoryView} />
+              <Route path="/admin/sessions/:userId" component={AllSessionView} />
+              <Route path="/curricula/:userId" component={CurriculaView} />
             </Switch>
           </div>
         </div>
