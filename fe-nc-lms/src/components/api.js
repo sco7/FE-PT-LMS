@@ -1,7 +1,5 @@
-const url = 'https://nc-be-lms.herokuapp.com/api'
-
 export const getLogin = (username, password) => {
-  const url = `${url}/user/username/${username}`;
+  const url = `https://nc-be-lms.herokuapp.com/api/user/username/${username}`;
   return fetch(url).then(res => {
     if (res.status === 404) throw new Error(res.statusText);
     return res.json();
@@ -9,7 +7,7 @@ export const getLogin = (username, password) => {
 };
 
 export const getCoursesByUserNotStarted = UserId => {
-  const url = `${url}/course/user/${UserId}/Not Started`;
+  const url = `https://nc-be-lms.herokuapp.com/api/course/user/${UserId}/Not Started`;
   return fetch(url).then(res => {
     if (res.status === 404) throw new Error(res.statusText);
     return res.json();
@@ -17,7 +15,7 @@ export const getCoursesByUserNotStarted = UserId => {
 };
 
 export const getCoursesByUserCompleted = UserId => {
-  const url = `${url}/course/completed/user/${UserId}`;
+  const url = `https://nc-be-lms.herokuapp.com/api/course/completed/user/${UserId}`;
   return fetch(url).then(res => {
     if (res.status === 404) throw new Error(res.statusText);
     return res.json();
@@ -25,7 +23,7 @@ export const getCoursesByUserCompleted = UserId => {
 };
 
 export const getCurriculaByUserId = UserId => {
-  const url = `${url}/curricula/user/${UserId}`;
+  const url = `https://nc-be-lms.herokuapp.com/api/curricula/user/${UserId}`;
   return fetch(url).then(res => {
     if (res.status === 404) throw new Error(res.statusText);
     return res.json();
@@ -33,7 +31,7 @@ export const getCurriculaByUserId = UserId => {
 };
 
 export const getUserById = UserId => {
-  const url = `${url}/user/${UserId}`;
+  const url = `https://nc-be-lms.herokuapp.com/api/user/${UserId}`;
   return fetch(url).then(res => {
     if (res.status === 404) throw new Error(res.statusText);
     return res.json();
@@ -41,7 +39,7 @@ export const getUserById = UserId => {
 };
 
 export const getCourseById = courseId => {
-  const url = `${url}/course/${courseId}`;
+  const url = `https://nc-be-lms.herokuapp.com/api/course/${courseId}`;
   return fetch(url).then(res => {
     if (res.status === 404) throw new Error(res.statusText);
     return res.json();
@@ -49,7 +47,7 @@ export const getCourseById = courseId => {
 };
 
 export const getSessionById = sessionId => {
-  const url = `${url}/session/${sessionId}`;
+  const url = `https://nc-be-lms.herokuapp.com/api/session/${sessionId}`;
   return fetch(url).then(res => {
     if (res.status === 404) throw new Error(res.statusText);
     return res.json();
@@ -57,7 +55,7 @@ export const getSessionById = sessionId => {
 };
 
 export const getAllSessions = () => {
-  const url = `${url}/session`;
+  const url = `https://nc-be-lms.herokuapp.com/api/session`;
   return fetch(url).then(res => {
     if (res.status === 404) throw new Error(res.statusText);
     return res.json();
@@ -65,14 +63,14 @@ export const getAllSessions = () => {
 };
 
 export const completeSessionById = sessionId => {
-  const url = `${url}/session/${sessionId}`;
+  const url = `https://nc-be-lms.herokuapp.com/api/session/${sessionId}`;
     return fetch(url, { method: 'PUT' }).then(res => {
       return res.json();
   });
 };
 
 export const getCoursesByUserId = userId => {
-  const url = `${url}/course/user/${userId}`;
+  const url = `https://nc-be-lms.herokuapp.com/api/course/user/${userId}`;
   return fetch(url).then(res => {
     if (res.status === 404) throw new Error(res.statusText);
     return res.json();
@@ -80,7 +78,7 @@ export const getCoursesByUserId = userId => {
 };
 
 export const getAllUsers = () => {
-  const url = `${url}/user`;
+  const url = `https://nc-be-lms.herokuapp.com/api/user`;
   return fetch(url).then(res => {
     if (res.status === 404) throw new Error(res.statusText);
     return res.json();
