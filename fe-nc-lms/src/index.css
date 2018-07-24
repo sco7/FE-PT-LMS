@@ -97,6 +97,14 @@ margin-bottom: 1em;
   margin-top: 5em;
 }
 
+#SessionBuilderButton {
+  margin-top: 5em;
+}
+
+#UserBuilderButton {
+  margin-top: 5em;
+}
+
 #login {
   margin-bottom: .5em;
 }

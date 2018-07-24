@@ -53,7 +53,7 @@ class AllSessionView extends React.Component {
             >
               Back
             </button>
-          </Link>
+          </Link>          
           <div class="col-10">
             <div>
               {this.state.loading ? (
@@ -61,7 +61,7 @@ class AllSessionView extends React.Component {
               ) : (
                 <form id="CompleteSessionFeed">
                   <Navbar />
-                  <h4 id="CompleteSessionView">All sessions</h4>
+                  <h4 id="CompleteSessionView"> </h4>
                   <h5>All Sessions</h5>
                   {this.state.sessions === undefined ? (
                     <p>No sessions</p>
@@ -69,7 +69,7 @@ class AllSessionView extends React.Component {
                     <table class="table table-hover">
                       <thead>
                         <tr>
-                          <th>id</th>
+                          <th>Id</th>
                           <th>Date</th>
                           <th>Start Time</th>
                           <th>Title</th>
@@ -85,6 +85,15 @@ class AllSessionView extends React.Component {
               )}
             </div>
           </div>
+        <Link to={`/Admin/SessionBuilder`}>
+            <button
+              type="button"
+              id="SessionBuilderButton"
+              class="btn btn-primary btn-sm"
+            >
+              Session builder
+            </button>
+          </Link>
         </div>
       </div>
     );

@@ -165,7 +165,7 @@ class LearningFeed extends React.Component {
                   ) : (
                 <form id="AdminTools">
                   <h5 id="AdminToolsTitle">Admin Tools</h5>
-                  <Link to={`/history/${user.id}`}>
+                  <Link to={`/admin/users/${user.id}`}>
                   <button type="button" class="btn btn-primary btn-sm">Users</button>
                   </Link>
                   <Link to={`/history/${user.id}`}>

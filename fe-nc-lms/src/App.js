@@ -8,6 +8,7 @@ import CourseView from './components/CourseView'
 import CompleteHistoryView from './components/CompleteHistoryView'
 import AllSessionView from './components/AdminSessions'
 import CurriculaView from './components/CurriculaView'
+import AllUserView from './components/AdminUsers'
 
 class App extends Component {
   render() {
@@ -24,6 +25,7 @@ class App extends Component {
               <Route path="/history/:userId" component={CompleteHistoryView} />
               <Route path="/admin/sessions/:userId" component={AllSessionView} />
               <Route path="/curricula/:userId" component={CurriculaView} />
+              <Route path="/admin/users/:userId" component={AllUserView} />
             </Switch>
           </div>
         </div>
