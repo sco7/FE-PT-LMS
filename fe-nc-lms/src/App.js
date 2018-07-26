@@ -6,9 +6,12 @@ import LearningFeed from './components/LearningFeed';
 import HomePage from './pages/HomePage';
 import CourseView from './components/CourseView'
 import CompleteHistoryView from './components/CompleteHistoryView'
-import AllSessionView from './components/AdminSessions'
 import CurriculaView from './components/CurriculaView'
+import AllSessionView from './components/AdminSessions'
+import AllCourseView from './components/AdminCourses'
 import AllUserView from './components/AdminUsers'
+import CourseBuilder from './components/CourseBuilder'
+
 
 class App extends Component {
   render() {
@@ -26,6 +29,8 @@ class App extends Component {
               <Route path="/admin/sessions/:userId" component={AllSessionView} />
               <Route path="/curricula/:userId" component={CurriculaView} />
               <Route path="/admin/users/:userId" component={AllUserView} />
+              <Route path="/admin/courses/:userId" component={AllCourseView} />
+              <Route path="/admin/courseBuilder/:userId" component={CourseBuilder} />
             </Switch>
           </div>
         </div>

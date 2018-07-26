@@ -84,3 +84,20 @@ export const getAllUsers = () => {
     return res.json();
   });
 };
+
+export const getAllCourses = () => {
+  const url = `https://nc-be-lms.herokuapp.com/api/course`;
+  return fetch(url).then(res => {
+    if (res.status === 404) throw new Error(res.statusText);
+    return res.json();
+  });
+};
+
+export const addCourse = (title, description, curricula_id) => {
+  const url = `https://nc-be-lms.herokuapp.com/api/course`;
+  return fetch(`${url}`, {method: 'POST', headers: new Headers({'Content-Type': 'application/json'}), body: JSON.stringify({title, description, curricula_id})})
+  .then(res => {
+    if (res.status === 404) throw new Error(res.statusText);
+    return res.json();
+  })
+}

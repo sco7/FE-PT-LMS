@@ -1,20 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from './navbar';
-import { getAllUsers } from './api';
+import { getAllCourses } from './api';
 
-class AllUserView extends React.Component {
+class AllCourseView extends React.Component {
   state = {
-    users: {},
+    courses: {},
     loading: true
   };
 
   componentDidMount() {
     console.log('loading');
-    getAllUsers().then(userData => {
-      console.log(userData, 'mounted');
+    getAllCourses().then(courseData => {
+      console.log(courseData, 'mounted');
       this.setState({
-        users: userData.Users,
+        courses: courseData.Courses,
         loading: false
       });
     });
@@ -22,7 +22,7 @@ class AllUserView extends React.Component {
 
   render() {
     console.log('render');
-    const { users } = this.state;
+    const { courses } = this.state;
     return (
       <div class="container">
         <div class="row">
@@ -38,41 +38,37 @@ class AllUserView extends React.Component {
           <div class="col-10">
             <div>
               {this.state.loading ? (
-                <p>Users loading........</p>
+                <p>Courses loading........</p>
               ) : (
-                <form id="CompleteUserFeed">
+                <form id="CompleteCoursesFeed">
                   <Navbar />
-                  <h4 id="CompleteUserView"> </h4>
-                  <h5>All Users</h5>
-                  {this.state.users === undefined ? (
-                    <p>No users</p>
+                  <h4 id="CompleteCoursesView"> </h4>
+                  <h5>All Courses</h5>
+                  {this.state.courses === undefined ? (
+                    <p>No courses</p>
                   ) : (
                     <table class="table table-hover">
                       <thead>
                         <tr>
                           <th>Id</th>
-                          <th>User Name</th>
-                          <th>First Name</th>
-                          <th>Last Name</th>
-                          <th>Gender</th>
-                          <th>Job Title</th>
-                          <th>Account Type</th>
+                          <th>Title</th>
+                          <th>Description</th>
                         </tr>
                       </thead>
-                      <tbody>{users.map(this.renderSessions.bind(this))}</tbody>
+                      <tbody>{courses.map(this.renderCourses.bind(this))}</tbody>
                     </table>
                   )}
                 </form>
               )}
             </div>
           </div>
-        <Link to={`/Admin/UserBuilder`}>
+        <Link to={`/Admin/CourseBuilder/${this.props.match.params.userId}`}>
             <button
               type="button"
-              id="UserBuilderButton"
+              id="CourseBuilderButton"
               class="btn btn-primary btn-sm"
             >
-              User builder
+              Course builder
             </button>
           </Link>
         </div>
@@ -80,18 +76,14 @@ class AllUserView extends React.Component {
     );
   }
 
-  renderSessions(user, index) {
+  renderCourses(course, index) {
     return (
       <tr key={index}>
-        <td>{user.id}</td>
-        <td>{user.username}</td>
-        <td>{user.first_name}</td>
-        <td>{user.last_name}</td>
-        <td>{user.gender}</td>
-        <td>{user.job_title}</td>
-        <td>{user.account_type}</td>
+        <td>{course.id}</td>
+        <td>{course.title}</td>
+        <td>{course.description}</td>
       </tr>
     );
   }
 }
-export default AllUserView;
+export default AllCourseView;
