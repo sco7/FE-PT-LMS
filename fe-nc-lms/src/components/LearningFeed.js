@@ -168,7 +168,7 @@ class LearningFeed extends React.Component {
                   <Link to={`/admin/users/${user.id}`}>
                   <button type="button" class="btn btn-primary btn-sm">Users</button>
                   </Link>
-                  <Link to={`/history/${user.id}`}>
+                  <Link to={`/admin/curricula/${user.id}`}>
                   <button type="button" class="btn btn-primary btn-sm">Curricula</button>
                   </Link>
                   <Link to={`/admin/courses/${user.id}`}>

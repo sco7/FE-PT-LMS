@@ -53,7 +53,27 @@ class AllSessionView extends React.Component {
             >
               Back
             </button>
-          </Link>          
+          </Link>       
+
+          <Link to={`/admin/SessionBuilder/${this.props.match.params.userId}`}>
+            <button
+              type="button"
+              id="CourseBuilderButton"
+              class="btn btn-primary btn-sm"
+            >
+              Add New Session
+            </button>
+          </Link>
+          <Link to={`/admin/SessionRemover/${this.props.match.params.userId}`}>
+            <button
+              type="button"
+              id="DeleteCourseButton"
+              class="btn btn-primary btn-sm"
+            >
+              Remove Session
+            </button>
+          </Link>
+
           <div class="col-10">
             <div>
               {this.state.loading ? (
@@ -85,15 +105,6 @@ class AllSessionView extends React.Component {
               )}
             </div>
           </div>
-        <Link to={`/Admin/SessionBuilder`}>
-            <button
-              type="button"
-              id="SessionBuilderButton"
-              class="btn btn-primary btn-sm"
-            >
-              Session builder
-            </button>
-          </Link>
         </div>
       </div>
     );

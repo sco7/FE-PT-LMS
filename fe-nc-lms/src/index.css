@@ -49,9 +49,6 @@ h6 {
   border-bottom: 1px solid;
 }
 
-#HistoryFeedRollUp {
-  
-}
 
 #HistoryFeed {
   padding-left: 0em;
@@ -109,10 +106,54 @@ margin-bottom: 1em;
   margin-top: 5em;
 }
 
+#CurriculaBuilderButton {
+  margin-top: 5em;
+}
+
 #login {
   margin-bottom: .5em;
 }
 
 #completeButton {
   margin-left: 2em;
+}
+
+#CompleteCoursesView {
+  margin: 0em;
+  padding: 0em;
+}
+
+#DeleteCourseButton {
+  margin-top: 5em;
+}
+
+#CompleteSessionView {
+  margin: 0em;
+  padding: 0em;
+}
+
+#CompleteUserView {
+  margin: 0em;
+  padding: 0em;
+}
+
+#CompleteCurriculaViewAdmin {
+  margin: 0em;
+  padding: 0em;
+}
+
+#DeleteUserButton {
+  margin-top: 5em;
+}
+
+#DeleteCurriculaButton {
+  margin-top: 5em;
+}
+
+#DeleteCurriculaButton {
+  margin-top: 5em;
+}
+
+#DeleteSessionButton {
+  margin-top: 5em;
 }

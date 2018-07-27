@@ -4,7 +4,7 @@ import { addCourse } from './api';
 import Navbar from './navbar';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
-class AddNewComment extends Component {
+class AddNewCourse extends Component {
   state = {
     title: '',
     description: '',
@@ -24,6 +24,7 @@ class AddNewComment extends Component {
   };
 
   handleChangeCurriculaId = event => {
+    console.log(event.target.value);
     this.setState({
       curriculaId: event.target.value
     });
@@ -34,6 +35,7 @@ class AddNewComment extends Component {
     let title = this.state.title;
     let description = this.state.description;
     let curriculaId = this.state.curriculaId;
+    console.log(title);
     console.log(curriculaId);
     addCourse(title, description, curriculaId).then(res => {
       this.setState({
@@ -61,77 +63,51 @@ class AddNewComment extends Component {
               <h5 id="courseBuilder">Add Course</h5>
               <FormGroup>
                 <Label for="courseTitle">Course Title</Label>
-                <Input type="textarea" name="text" id="exampleText" onChange={this.handleChangeTitle}
-                  value={this.state.title} />
-              </FormGroup>
-              <FormGroup>
-                <Label for="courseDescription">Course Description</Label>
-                <Input type="textarea" name="text" id="exampleText" onChange={this.handleChangeDescription}
-                  value={this.state.description}/>
-              </FormGroup>
-              <FormGroup>
-                <Label for="curriculaIdSelect">Curricula Id</Label>
-                <Input type="select" name="select" id="exampleSelect" onChange={this.handleChangeCurriculaId}
-                  value={this.state.curriculaId}>
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </Input>
-              </FormGroup>
-
-              <Button>Submit</Button>
-            </Form>
-
-            
-            </div>
-            <div class="col-sm" />
-
-            {/* <label>Create new course</label>
-              <div>
-                <textarea
-                  rows="1"
-                  cols="40"
-                  className="textarea"
-                  placeholder="Course Title"
+                <Input
+                  type="textarea"
+                  name="text"
+                  id="exampleText"
                   onChange={this.handleChangeTitle}
                   value={this.state.title}
                 />
-                <textarea
-                  rows="1"
-                  cols="40"
-                  className="textarea"
-                  placeholder="Course Description"
+              </FormGroup>
+              <FormGroup>
+                <Label for="courseDescription">Course Description</Label>
+                <Input
+                  type="textarea"
+                  name="text"
+                  id="exampleText"
                   onChange={this.handleChangeDescription}
                   value={this.state.description}
                 />
-                <input
-                  type="number"
-                  cols="40"
-                  className="textarea"
-                  placeholder="Curricula Id"
+              </FormGroup>
+              <FormGroup>
+                <Label for="curriculaIdSelect">Curricula Id</Label>
+                <Input
+                  type="select"
+                  name="select"
+                  id="exampleSelect"
                   onChange={this.handleChangeCurriculaId}
-                  value={this.state.curriculaId}
-                />
-                <div>
-                  <button
-                    className="button"
-                    type="submit"
-                    //id={this.props.articleId}
-                    onClick={this.submitNewCourse}
-                    //value={this.state.comment}
-                  >
-                    {' '}
-                    Submit
-                  </button>
-                </div>
-              </div> */}
+                >
+                  <option selected>Choose...</option>
+                  <option value={1}>Basic Package</option>
+                  <option value={2}>Advanced Package</option>
+                  <option value={3}>Engineering Package</option>
+                  <option value={4}>Technical Package</option>
+                  <option value={5}>Management Package</option>
+                </Input>
+              </FormGroup>
+
+              <Button type="submit" onClick={this.submitNewCourse}>
+                Submit
+              </Button>
+            </Form>
           </div>
-       
+          <div class="col-sm" />
+        </div>
       </div>
     );
   }
 }
 
-export default AddNewComment;
+export default AddNewCourse;

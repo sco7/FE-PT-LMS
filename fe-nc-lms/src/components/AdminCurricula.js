@@ -1,20 +1,20 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Navbar from './navbar';
-import { getAllCourses } from './api';
+import { getAllCurricula } from './api';
 
-class AllCourseView extends React.Component {
+class AllCurriculaView extends React.Component {
   state = {
-    courses: {},
+    curricula: {},
     loading: true
   };
 
   componentDidMount() {
     console.log('loading');
-    getAllCourses().then(courseData => {
-      console.log(courseData, 'mounted');
+    getAllCurricula().then(curriculaData => {
+      console.log(curriculaData, 'mounted');
       this.setState({
-        courses: courseData.Courses,
+        curricula: curriculaData.Curricula,
         loading: false
       });
     });
@@ -22,7 +22,7 @@ class AllCourseView extends React.Component {
 
   render() {
     console.log('render');
-    const { courses } = this.state;
+    const { curricula } = this.state;
     return (
       <div class="container">
         <div class="row">
@@ -36,22 +36,22 @@ class AllCourseView extends React.Component {
             </button>
           </Link>    
           
-        <Link to={`/admin/CourseBuilder/${this.props.match.params.userId}`}>
+        <Link to={`/admin/CurriculaBuilder/${this.props.match.params.userId}`}>
             <button
               type="button"
-              id="CourseBuilderButton"
+              id="CurriculaBuilderButton"
               class="btn btn-primary btn-sm"
             >
-              Add New Course
+              Add New Curricula
             </button>
           </Link>
-          <Link to={`/admin/CourseRemover/${this.props.match.params.userId}`}>
+          <Link to={`/admin/CurriculaRemover/${this.props.match.params.userId}`}>
             <button
               type="button"
-              id="DeleteCourseButton"
+              id="DeleteCurriculaButton"
               class="btn btn-primary btn-sm"
             >
-              Remove Course
+              Remove Curricula
             </button>
           </Link>
                
@@ -60,12 +60,12 @@ class AllCourseView extends React.Component {
               {this.state.loading ? (
                 <p>Courses loading........</p>
               ) : (
-                <form id="CompleteCoursesFeed">
+                <form id="CompleteCurriculaFeed">
                   <Navbar />
-                  <h4 id="CompleteCoursesView"> </h4>
-                  <h5>All Courses</h5>
-                  {this.state.courses === undefined ? (
-                    <p>No courses</p>
+                  <h4 id="CompleteCurriculaViewAdmin"> </h4>
+                  <h5>All Curricula</h5>
+                  {this.state.curricula === undefined ? (
+                    <p>No curricula</p>
                   ) : (
                     <table class="table table-hover">
                       <thead>
@@ -75,7 +75,7 @@ class AllCourseView extends React.Component {
                           <th>Description</th>
                         </tr>
                       </thead>
-                      <tbody>{courses.map(this.renderCourses.bind(this))}</tbody>
+                      <tbody>{curricula.map(this.renderCurricula.bind(this))}</tbody>
                     </table>
                   )}
                 </form>
@@ -88,14 +88,14 @@ class AllCourseView extends React.Component {
     );
   }
 
-  renderCourses(course, index) {
+  renderCurricula(curricula, index) {
     return (
       <tr key={index}>
-        <td>{course.id}</td>
-        <td>{course.title}</td>
-        <td>{course.description}</td>
+        <td>{curricula.id}</td>
+        <td>{curricula.title}</td>
+        <td>{curricula.description}</td>
       </tr>
     );
   }
 }
-export default AllCourseView;
+export default AllCurriculaView;
