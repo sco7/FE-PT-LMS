@@ -8,7 +8,7 @@ Deployed on Heroku:-  https://nc-fe-lms.herokuapp.com
 
 The LMS is configured with 24 users and 1 admin account.  The system starts on the login screen. Enter a username from the list below.  The password field is not configured and can be left blank.
 
-A list of login usernames are listed below:-
+A list of login usernames:-
 
 * scott001 (this is the admin account)
 * johns001
