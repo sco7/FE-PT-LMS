@@ -10,31 +10,31 @@ The LMS is configured with 24 users and 1 admin account.  The system starts on t
 
 A list of login usernames are listed below:-
 
-scott001 (this is the admin account)
-johns001
-charl001
-steph001
-iansm001
-james001
-david001
-debor001
-emmaa001
-kelli001
-johnb001
-louis001
-julie001
-christ001
-rebec001
-sheil001
-phili001
-cecil001
-raymo001
-josep001
-james002
-graha001
-charl002
-cathe001
-ruper001
+* scott001 (this is the admin account)
+* johns001
+* charl001
+* steph001
+* iansm001
+* james001
+* david001
+* debor001
+* emmaa001
+* kelli001
+* johnb001
+* louis001
+* julie001
+* christ001
+* rebec001
+* sheil001
+* phili001
+* cecil001
+* raymo001
+* josep001
+* james002
+* graha001
+* charl002
+* cathe001
+* ruper001
 
 ## Getting Started
 
