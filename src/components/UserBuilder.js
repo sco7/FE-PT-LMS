@@ -66,7 +66,15 @@ class AddNewUser extends Component {
     let gender = this.state.gender;
     let userName = this.state.username;
     let CurriculaId = this.state.curricula_id;
-    addUser(accountType, firstName, lastName, jobTitle, gender, userName, CurriculaId).then(res => {
+    addUser(
+      accountType,
+      firstName,
+      lastName,
+      jobTitle,
+      gender,
+      userName,
+      CurriculaId
+    ).then(res => {
       this.setState({
         account_type: '',
         first_name: '',
@@ -75,10 +83,10 @@ class AddNewUser extends Component {
         gender: '',
         username: '',
         curricula_id: 0
-        });
       });
-    };
-  
+    });
+  };
+
   render() {
     return (
       <div class="container">
@@ -88,7 +96,6 @@ class AddNewUser extends Component {
           </button>
         </Link>
         <Navbar />
-
         <div class="row">
           <div class="col-sm" />
           <div class="col-6">
@@ -97,11 +104,11 @@ class AddNewUser extends Component {
               <FormGroup>
                 <Label for="userAccount">Account Type</Label>
                 <Input
-                type="select"
-                name="select"
-                id="exampleSelect"
-                onChange={this.handleChangeAccount}
-                value={this.state.account_type}
+                  type="select"
+                  name="select"
+                  id="exampleSelect"
+                  onChange={this.handleChangeAccount}
+                  value={this.state.account_type}
                 >
                   <option selected>Choose...</option>
                   <option>User</option>
@@ -141,11 +148,11 @@ class AddNewUser extends Component {
               <FormGroup>
                 <Label for="Gender">Gender</Label>
                 <Input
-                type="select"
-                name="select"
-                id="exampleSelect"
-                onChange={this.handleChangeGender}
-                value={this.state.gender}
+                  type="select"
+                  name="select"
+                  id="exampleSelect"
+                  onChange={this.handleChangeGender}
+                  value={this.state.gender}
                 >
                   <option selected>Choose...</option>
                   <option>M</option>
@@ -162,7 +169,6 @@ class AddNewUser extends Component {
                   value={this.state.username}
                 />
               </FormGroup>
-
               <FormGroup>
                 <Label for="userCurriculaId">Curricula Id</Label>
                 <Input
@@ -173,7 +179,6 @@ class AddNewUser extends Component {
                   value={this.state.curricula_id}
                 />
               </FormGroup>
-
               <Button type="submit" onClick={this.submitNewUser}>
                 Submit
               </Button>

@@ -20,8 +20,8 @@ class DeleteSession extends Component {
     let sessionId = this.state.sessionId;
     console.log(sessionId);
     removeSession(sessionId).then(res => {
-      if (res.error === undefined) alert(res.message)
-      if (res.message === undefined) alert(res.error)
+      if (res.error === undefined) alert(res.message);
+      if (res.message === undefined) alert(res.error);
       this.setState({
         sessionId: 0
       });
@@ -37,7 +37,6 @@ class DeleteSession extends Component {
           </button>
         </Link>
         <Navbar />
-
         <div class="row">
           <div class="col-sm" />
           <div class="col-6">

@@ -34,8 +34,7 @@ class AllUserView extends React.Component {
             >
               Back
             </button>
-          </Link>         
-
+          </Link>
           <Link to={`/admin/UserBuilder/${this.props.match.params.userId}`}>
             <button
               type="button"
@@ -54,7 +53,6 @@ class AllUserView extends React.Component {
               Remove User
             </button>
           </Link>
-
           <div class="col-10">
             <div>
               {this.state.loading ? (

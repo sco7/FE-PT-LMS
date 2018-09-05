@@ -20,8 +20,8 @@ class DeleteCourse extends Component {
     let courseId = this.state.courseId;
     console.log(courseId);
     removeCourse(courseId).then(res => {
-      if (res.error === undefined) alert(res.message)
-      if (res.message === undefined) alert(res.error)
+      if (res.error === undefined) alert(res.message);
+      if (res.message === undefined) alert(res.error);
       this.setState({
         courseId: 0
       });
@@ -37,7 +37,6 @@ class DeleteCourse extends Component {
           </button>
         </Link>
         <Navbar />
-
         <div class="row">
           <div class="col-sm" />
           <div class="col-6">
@@ -52,7 +51,6 @@ class DeleteCourse extends Component {
                   onChange={this.handleChangeCourseId}
                 />
               </FormGroup>
-
               <Button type="submit" onClick={this.handleDeleteCourse}>
                 Delete Course
               </Button>

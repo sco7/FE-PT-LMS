@@ -20,8 +20,8 @@ class DeleteUser extends Component {
     let userId = this.state.userId;
     console.log(userId);
     removeUser(userId).then(res => {
-      if (res.error === undefined) alert(res.message)
-      if (res.message === undefined) alert(res.error)
+      if (res.error === undefined) alert(res.message);
+      if (res.message === undefined) alert(res.error);
       this.setState({
         userId: 0
       });
@@ -37,7 +37,6 @@ class DeleteUser extends Component {
           </button>
         </Link>
         <Navbar />
-
         <div class="row">
           <div class="col-sm" />
           <div class="col-6">
@@ -52,7 +51,6 @@ class DeleteUser extends Component {
                   onChange={this.handleChangeUserId}
                 />
               </FormGroup>
-
               <Button type="submit" onClick={this.handleDeleteUser}>
                 Delete User
               </Button>

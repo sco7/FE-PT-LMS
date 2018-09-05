@@ -19,7 +19,6 @@ h4 {
   margin-top: 2em;
   padding-top: 1em;
   padding-bottom: 1em;
-
 }
 
 h5 {
@@ -31,7 +30,6 @@ h6 {
   padding-top: 1em;
   padding-bottom: 0em;
 }
-
 
 #CurriculaFeed {
   margin-top: 3em;
@@ -49,7 +47,6 @@ h6 {
   border-bottom: 1px solid;
 }
 
-
 #HistoryFeed {
   padding-left: 0em;
   padding-right: 3em;
@@ -65,7 +62,7 @@ p {
 }
 
 #loginTitle {
-margin-top: 4em;
+  margin-top: 4em;
 }
 
 .col-5 {
@@ -73,15 +70,15 @@ margin-top: 4em;
 }
 
 div.row {
-background-color: transparent;
+  background-color: transparent;
 }
 
 .btn {
-font-size: small;
-color: purple;
-background-color: transparent;
-margin-right: 1em;
-margin-bottom: 1em;
+  font-size: small;
+  color: purple;
+  background-color: transparent;
+  margin-right: 1em;
+  margin-bottom: 1em;
 }
 
 #AdminTools {
@@ -111,7 +108,7 @@ margin-bottom: 1em;
 }
 
 #login {
-  margin-bottom: .5em;
+  margin-bottom: 0.5em;
 }
 
 #completeButton {

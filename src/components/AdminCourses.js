@@ -34,9 +34,9 @@ class AllCourseView extends React.Component {
             >
               Back
             </button>
-          </Link>    
-          
-        <Link to={`/admin/CourseBuilder/${this.props.match.params.userId}`}>
+          </Link>
+
+          <Link to={`/admin/CourseBuilder/${this.props.match.params.userId}`}>
             <button
               type="button"
               id="CourseBuilderButton"
@@ -54,7 +54,7 @@ class AllCourseView extends React.Component {
               Remove Course
             </button>
           </Link>
-               
+
           <div class="col-9">
             <div>
               {this.state.loading ? (
@@ -75,14 +75,15 @@ class AllCourseView extends React.Component {
                           <th>Description</th>
                         </tr>
                       </thead>
-                      <tbody>{courses.map(this.renderCourses.bind(this))}</tbody>
+                      <tbody>
+                        {courses.map(this.renderCourses.bind(this))}
+                      </tbody>
                     </table>
                   )}
                 </form>
               )}
             </div>
           </div>
-          
         </div>
       </div>
     );

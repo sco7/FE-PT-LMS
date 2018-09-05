@@ -34,9 +34,11 @@ class AllCurriculaView extends React.Component {
             >
               Back
             </button>
-          </Link>    
-          
-        <Link to={`/admin/CurriculaBuilder/${this.props.match.params.userId}`}>
+          </Link>
+
+          <Link
+            to={`/admin/CurriculaBuilder/${this.props.match.params.userId}`}
+          >
             <button
               type="button"
               id="CurriculaBuilderButton"
@@ -45,7 +47,9 @@ class AllCurriculaView extends React.Component {
               Add New Curricula
             </button>
           </Link>
-          <Link to={`/admin/CurriculaRemover/${this.props.match.params.userId}`}>
+          <Link
+            to={`/admin/CurriculaRemover/${this.props.match.params.userId}`}
+          >
             <button
               type="button"
               id="DeleteCurriculaButton"
@@ -54,7 +58,7 @@ class AllCurriculaView extends React.Component {
               Remove Curricula
             </button>
           </Link>
-               
+
           <div class="col-9">
             <div>
               {this.state.loading ? (
@@ -75,14 +79,15 @@ class AllCurriculaView extends React.Component {
                           <th>Description</th>
                         </tr>
                       </thead>
-                      <tbody>{curricula.map(this.renderCurricula.bind(this))}</tbody>
+                      <tbody>
+                        {curricula.map(this.renderCurricula.bind(this))}
+                      </tbody>
                     </table>
                   )}
                 </form>
               )}
             </div>
           </div>
-          
         </div>
       </div>
     );

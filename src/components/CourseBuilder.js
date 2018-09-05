@@ -55,7 +55,6 @@ class AddNewCourse extends Component {
           </button>
         </Link>
         <Navbar />
-
         <div class="row">
           <div class="col-sm" />
           <div class="col-6">
@@ -97,7 +96,6 @@ class AddNewCourse extends Component {
                   <option value={5}>Management Package</option>
                 </Input>
               </FormGroup>
-
               <Button type="submit" onClick={this.submitNewCourse}>
                 Submit
               </Button>

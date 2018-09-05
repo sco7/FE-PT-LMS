@@ -20,8 +20,8 @@ class DeleteCurricula extends Component {
     let curriculaId = this.state.curriculaId;
     console.log(curriculaId);
     removeCurricula(curriculaId).then(res => {
-      if (res.error === undefined) alert(res.message)
-      if (res.message === undefined) alert(res.error)
+      if (res.error === undefined) alert(res.message);
+      if (res.message === undefined) alert(res.error);
       this.setState({
         curriculaId: 0
       });
@@ -37,7 +37,6 @@ class DeleteCurricula extends Component {
           </button>
         </Link>
         <Navbar />
-
         <div class="row">
           <div class="col-sm" />
           <div class="col-6">
@@ -52,7 +51,6 @@ class DeleteCurricula extends Component {
                   onChange={this.handleChangeCurriculaId}
                 />
               </FormGroup>
-
               <Button type="submit" onClick={this.handleDeleteCurricula}>
                 Delete Curricula
               </Button>

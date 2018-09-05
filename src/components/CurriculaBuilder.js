@@ -50,7 +50,7 @@ class AddNewCurricula extends Component {
             <Form>
               <h5 id="curriculaBuilder">Add Curricula</h5>
               <FormGroup>
-                <Label for="userTitle">User Title</Label>
+                <Label for="curriculaTitle">Curricula Title</Label>
                 <Input
                   type="text"
                   name="text"

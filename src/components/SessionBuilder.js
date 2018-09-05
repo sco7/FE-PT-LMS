@@ -12,7 +12,7 @@ class AddNewSession extends Component {
     location: '',
     completed_status: '',
     course_id: 0,
-    user_id:0
+    user_id: 0
   };
 
   handleChangeDate = event => {
@@ -66,26 +66,27 @@ class AddNewSession extends Component {
     let completedStatus = this.state.completed_status;
     let courseId = this.state.course_id;
     let userId = this.state.user_id;
-    console.log(startDate)
-    console.log(startTime)
-    console.log(duration)
-    console.log(location)
-    console.log(completedStatus)
-    console.log(courseId)
-    console.log(userId)
-    addSession(startDate, startTime, duration, location, completedStatus, courseId, userId).then(res => {
+    addSession(
+      startDate,
+      startTime,
+      duration,
+      location,
+      completedStatus,
+      courseId,
+      userId
+    ).then(res => {
       this.setState({
-          start_date: '',
-          start_time: '',
-          duration: '',
-          location: '',
-          completed_status: '',
-          course_id: 0,
-          user_id: 0
-        });
+        start_date: '',
+        start_time: '',
+        duration: '',
+        location: '',
+        completed_status: '',
+        course_id: 0,
+        user_id: 0
       });
-    };
-  
+    });
+  };
+
   render() {
     return (
       <div class="container">
@@ -142,7 +143,7 @@ class AddNewSession extends Component {
                 />
               </FormGroup>
 
-                <FormGroup>
+              <FormGroup>
                 <Label for="sessionStatus">Status</Label>
                 <Input
                   type="select"

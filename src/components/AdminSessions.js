@@ -18,14 +18,14 @@ class AllSessionView extends React.Component {
     completeSessionById(id).then(res => {
       this.setState({
         sessions: res.sessions
-      })
-        getAllSessions().then(sessionData => {
-          console.log(sessionData, 'mounted');
-          this.setState({
-            sessions: sessionData.Sessions,
-          });
-        })
-    })
+      });
+      getAllSessions().then(sessionData => {
+        console.log(sessionData, 'mounted');
+        this.setState({
+          sessions: sessionData.Sessions
+        });
+      });
+    });
   };
 
   componentDidMount() {
@@ -53,7 +53,7 @@ class AllSessionView extends React.Component {
             >
               Back
             </button>
-          </Link>       
+          </Link>
 
           <Link to={`/admin/SessionBuilder/${this.props.match.params.userId}`}>
             <button
@@ -73,7 +73,6 @@ class AllSessionView extends React.Component {
               Remove Session
             </button>
           </Link>
-
           <div class="col-10">
             <div>
               {this.state.loading ? (
@@ -98,7 +97,9 @@ class AllSessionView extends React.Component {
                           <th>Complete Session</th>
                         </tr>
                       </thead>
-                      <tbody>{sessions.map(this.renderSessions.bind(this))}</tbody>
+                      <tbody>
+                        {sessions.map(this.renderSessions.bind(this))}
+                      </tbody>
                     </table>
                   )}
                 </form>
@@ -126,7 +127,8 @@ class AllSessionView extends React.Component {
             type="button"
             id="completeButton"
             class="btn btn-primary btn-sm"
-            onClick={this.completeSession(session.id)}>
+            onClick={this.completeSession(session.id)}
+          >
             Complete
           </button>
         </td>
@@ -135,5 +137,3 @@ class AllSessionView extends React.Component {
   }
 }
 export default AllSessionView;
-
-

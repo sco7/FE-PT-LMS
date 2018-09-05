@@ -18,7 +18,7 @@ class LearningFeed extends React.Component {
     user: {},
     loading: true
   };
-  
+
   componentDidMount() {
     console.log('loading');
     const { userId } = this.props.match.params;
@@ -33,14 +33,12 @@ class LearningFeed extends React.Component {
       }
     );
 
-    getUserById(this.props.match.params.userId).then(
-      userData => {
-        console.log(userData, 'mounted', userId);
-        this.setState({
-          user: userData.Users
-        });
-      }
-    );
+    getUserById(this.props.match.params.userId).then(userData => {
+      console.log(userData, 'mounted', userId);
+      this.setState({
+        user: userData.Users
+      });
+    });
 
     getCoursesByUserCompleted(this.props.match.params.userId).then(
       historyData => {
@@ -51,14 +49,12 @@ class LearningFeed extends React.Component {
       }
     );
 
-    getCurriculaByUserId(this.props.match.params.userId).then(
-      curriculaData => {
-        console.log(curriculaData, 'mounted', userId);
-        this.setState({
-          curricula: curriculaData.Curricula
-        });
-      }
-    );
+    getCurriculaByUserId(this.props.match.params.userId).then(curriculaData => {
+      console.log(curriculaData, 'mounted', userId);
+      this.setState({
+        curricula: curriculaData.Curricula
+      });
+    });
   }
 
   render() {
@@ -67,74 +63,79 @@ class LearningFeed extends React.Component {
     console.log(this.state.courses);
     return (
       <div class="container">
-      <div class="row">
-        <div class="col-1" />
-        <div class="col-5">
-          <div>
-            {this.state.loading ? (
-              <p>Courses loading........</p>
-            ) : (
-              <form id="CourseFeed">
-                <Navbar />
-                <h4 id="CourseFeedTitle">{user.first_name}'s Learning Plan</h4>
-                <h5>Courses Outstanding</h5>
-                {this.state.courses === undefined ? (
-                  <p>No courses planned</p>
-                ) : (
-                  courses.map(course => {
-                    return (
-                      <div id="CourseFeedRollUp" key={course.course_id}>
-                        {/* <Link to={`/course/${course.course_id}`}> */}
+        <div class="row">
+          <div class="col-1" />
+          <div class="col-5">
+            <div>
+              {this.state.loading ? (
+                <p>Courses loading........</p>
+              ) : (
+                <form id="CourseFeed">
+                  <Navbar />
+                  <h4 id="CourseFeedTitle">
+                    {user.first_name}'s Learning Plan
+                  </h4>
+                  <h5>Courses Outstanding</h5>
+                  {this.state.courses === undefined ? (
+                    <p>No courses planned</p>
+                  ) : (
+                    courses.map(course => {
+                      return (
+                        <div id="CourseFeedRollUp" key={course.course_id}>
+                          {/* <Link to={`/course/${course.course_id}`}> */}
                           <h6>{course.title}</h6>
                           <p>{course.description}</p>
-                        {/* </Link> */}
-                        <p>
-                          Start Date:{' '}
-                          <Moment format="DD/MM/YY">{course.start_date}</Moment> &emsp; Start time:{' '}
-                          {course.start_time}
-                        </p>
-                        <p>
-                          Location: {course.location} &emsp; Length:{' '}
-                          {course.duration_hours} hours
-                        </p>
-                      </div>
-                    );
-                  })
-                )}
-              </form>
-            )}
-          </div>
-
+                          {/* </Link> */}
+                          <p>
+                            Start Date:{' '}
+                            <Moment format="DD/MM/YY">
+                              {course.start_date}
+                            </Moment>{' '}
+                            &emsp; Start time: {course.start_time}
+                          </p>
+                          <p>
+                            Location: {course.location} &emsp; Length:{' '}
+                            {course.duration_hours} hours
+                          </p>
+                        </div>
+                      );
+                    })
+                  )}
+                </form>
+              )}
+            </div>
           </div>
           <div class="col-3">
             <div>
               {this.state.loading ? (
                 <p>History loading........</p>
-              ) : ( 
+              ) : (
                 <form id="HistoryFeed">
                   <h4 id="HistoryFeedTitle"> </h4>
                   <h5>Learning History</h5>
-                  <p><b>Most Recently Added</b></p>
+                  <p>
+                    <b>Most Recently Added</b>
+                  </p>
                   {this.state.history === undefined ? (
                     <p>No Learning completed</p>
                   ) : (
                     history.slice(0, 2).map(course => {
                       return (
                         <div id="HistoryFeedRollUp" key={course._id}>
-                          <p>
-                            {course.title}
-                          </p>
+                          <p>{course.title}</p>
                         </div>
                       );
                     })
                   )}
                   <Link to={`/history/${user.id}`}>
-                  <button type="button" class="btn btn-primary btn-sm">View All</button>
+                    <button type="button" class="btn btn-primary btn-sm">
+                      View All
+                    </button>
                   </Link>
                 </form>
               )}
             </div>
-            
+
             <div>
               {this.state.loading ? (
                 <p>Curricula loading........</p>
@@ -148,8 +149,9 @@ class LearningFeed extends React.Component {
                       return (
                         <div id="CurriculaFeedRollUp" key={curricula._id}>
                           <p>
-                          <Link to={`/curricula/${user.id}`}>{curricula.title}
-                          </Link>
+                            <Link to={`/curricula/${user.id}`}>
+                              {curricula.title}
+                            </Link>
                           </p>
                         </div>
                       );
@@ -160,28 +162,36 @@ class LearningFeed extends React.Component {
             </div>
 
             <div>
-            {user.account_type !== 'Admin' ? (
-                    <p></p>
-                  ) : (
+              {user.account_type !== 'Admin' ? (
+                <p />
+              ) : (
                 <form id="AdminTools">
                   <h5 id="AdminToolsTitle">Admin Tools</h5>
                   <Link to={`/admin/users/${user.id}`}>
-                  <button type="button" class="btn btn-primary btn-sm">Users</button>
+                    <button type="button" class="btn btn-primary btn-sm">
+                      Users
+                    </button>
                   </Link>
                   <Link to={`/admin/curricula/${user.id}`}>
-                  <button type="button" class="btn btn-primary btn-sm">Curricula</button>
+                    <button type="button" class="btn btn-primary btn-sm">
+                      Curricula
+                    </button>
                   </Link>
                   <Link to={`/admin/courses/${user.id}`}>
-                  <button type="button" class="btn btn-primary btn-sm">Courses</button>
+                    <button type="button" class="btn btn-primary btn-sm">
+                      Courses
+                    </button>
                   </Link>
                   <Link to={`/admin/sessions/${user.id}`}>
-                  <button type="button" class="btn btn-primary btn-sm">Sessions</button>
+                    <button type="button" class="btn btn-primary btn-sm">
+                      Sessions
+                    </button>
                   </Link>
                 </form>
-                )}
+              )}
             </div>
+          </div>
         </div>
-      </div>
       </div>
     );
   }
